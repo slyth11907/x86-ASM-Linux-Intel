@@ -1,1 +1,1 @@
-# x86-ASM-Linux-Intel
+Notes on SLAE Course
