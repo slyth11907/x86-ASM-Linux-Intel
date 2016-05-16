@@ -1,0 +1,7 @@
+FPU - Floating Point Unit or x87, 80bits
+
+This is used when dealing with floating points. It behaves like a stack.
+
+Uses registers ST(0)->ST(7)
+
+

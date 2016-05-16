@@ -1,0 +1,34 @@
+System Call Flow
+
+User Space Program -> Interrupt Handlers Table -> System Call Handler -> System Call Routines
+
+Interrupt Handler Table located at  /usr/include/i386-linux-gnu/asm/unistd_32.h
+
+To Envoke a System Call
+	int 0x80
+	SYSENTER
+	VDSO(Virtual Dynamic Shared Object)
+
+
+To view the Man page to see the required flags and args
+	man 2 <call name, ex write, read>
+
+
+File Descriptor
+	STDIN = 0
+	STDOUT = 1
+	STDERROR = 2
+
+
+EX. Writing to the screen with write syscall
+	ssize_T write(int fd, const void *buf, size_t count);
+			1	message		length of string
+
+
+Invoking a System Call in the Registers with 0x80
+	EAX - System Call Number (EX 4 for write) - This will typically contain the call's return value
+	EBX - 1st Arg (EX 1 for fd)
+	ECX - 2nd Arg (EX message the data to be printed out)
+	EDX - 3rd Arg (EX length of the string)
+	ESI - 4th Arg
+	EDI - 5th Arg

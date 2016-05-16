@@ -1,0 +1,71 @@
+In 32Bit CPU
+
+#High Overview
+
+Kernel Space (1GB)
+	|
+	|
+	|
+User Space (3GB)
+
+#More Broken down view
+
+Mem Address Range
+
+	0XFFFFFFFF
+		Kernel Space
+
+	0XC0000000
+		Stack - Fucntion Args + Local Vars
+
+		Shared Libs + Mappings
+		
+		Heap - Dynamic Memory
+
+		BSS - Uninitialized Data
+	
+		Data - Initialized Data
+
+		Text - Program Code
+	0X08048000
+	0x00000000
+
+To View the virtual Memory stack:
+	sudo cat /proc/<pid of process>/maps
+OR to view in GDB
+	info proc mappings
+Using PMAP
+	pmap -d <PID>
+
+EX line
+	08048000-08124000 r-xp 00000000 08:01 262154     /bin/bash
+	{Start and End     |       |	  |	|	 {File Path}
+	 Address of        |	   |	  |	|
+     section}          |	   |	  |	|
+			 {Permissions on seciton
+			  r = readable
+			  w = writeable
+			  x = executable
+			  p = private not shared
+			  s = shared  
+			  EX r-xp = read & write & execute, not shared}
+								|	  |	|
+							    |	  |	|
+							  {Offset in file
+							   for memory mapped
+							   files. 0 otherwise}
+									  |	|
+									  |	|
+									{Major - Minor device 
+									 number of device from
+									 where the file was loaded}
+										|
+										|
+										  {Inode Number}
+
+
+
+
+
+
+	

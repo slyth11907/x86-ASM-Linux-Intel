@@ -1,0 +1,39 @@
+SIMD - Single Instruction Multiple Data
+
+Added by Intel to allow for an extention to their data sets.
+
+Extensions:
+	MMX
+	SSE
+	SSE2
+	SSE3
+
+Also uses MMX and XMM registers.
+
+MMX Registers:
+	#This is carved out of the FPU Registers
+	# MM0 uses 0-63bits of the 80bits it repeats throughout the rest of them
+
+	ST(0) -> MM0
+	ST(1) -> MM1
+	ST(2) -> MM2
+	ST(3) -> MM3
+	ST(4) -> MM4
+	ST(5) -> MM5
+	ST(6) -> MM6
+	ST(7) -> MM7
+
+XMM Registers
+
+	#These use 128bit registers
+
+	XMM0
+	xMM1
+	xMM2
+	xMM3
+	xMM4
+	xMM5
+	xMM6
+	xMM7
+
+	

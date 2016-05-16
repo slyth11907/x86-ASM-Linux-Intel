@@ -1,0 +1,38 @@
+Moving-Data
+
+	MOV:
+		Allowed Directions:
+			- Between Registers
+			- Memory to Registers and Registers to Memory
+			- Immediate Data to Registers (AKA mov byte [message], eax) note the [] are getting the exact value
+			- Immediate Data to Memory
+			
+
+	LEA:
+		Load Effective Address - Loads a pointer value
+		
+		EX: lea eax, [message]
+		This loads the memory address of the message label
+		
+
+	XCHG:
+		Exchanges AKA swaps Values
+		
+		EX: xchg eax, ebx ;This will swap what ever is in ebx into eax and eax into ebx
+		EX: xchg ecx, <memory address>
+
+
+	PUSH:
+		This will automatic push data on top of the stack
+		Note: This will automaticly update ESP to let it know what the new address is for the top of the stack
+		
+		EX: push eax ; This pushes whatever is in EAX onto the top of the stack
+		
+	
+	POP:
+		This removed the top entry into the stack and assigns it to a memory address or register
+		Note: This will automaticly update ESP to let it know what the new address is for the top of the stack
+		
+		EX: pop eax ;This takes the data on the top of the stack and moves it to EAX
+		
+	

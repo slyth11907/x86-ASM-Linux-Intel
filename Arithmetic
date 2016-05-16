@@ -1,0 +1,55 @@
+Arithmetic
+
+	ADD:
+	
+		Format: add destination, source
+		
+		
+		
+	ADC:
+	
+		Format: add destination, source ; Note this adds the carry flag
+		The reason the carry flag is needed is because when you add 10+10 you get 20 this is still a 0x20 and 0x00 but if you add 0x10 + 0x90 it will be 100 and unable to hold the value without using this
+		NOTE:This only works if the carry flag is set
+		Also note this add's 1 to the destination 
+		
+		
+	
+	SUB:
+		
+		Format: sub eax, 5
+		
+	
+	SBB:
+		
+		Format: sbb eax, 5
+		This subtracts an additional 1 from eax
+		NOTE:This only works if the carry flag is set
+		
+		
+	INC:
+	
+		Format: inc eax
+		This increases the value by 1
+		
+		
+	DEC:
+	
+		Format: dec eax
+		This decreases the value by 1
+		
+		
+	CLC:
+		Format: clc
+		This is used to clear the carry flag
+	
+	STC:
+		Format: stc
+		This is used to set the carry flag
+		
+	CMC:
+		Format: cmc
+		This is used to complement the carry flag
+		This one is special, if the carry flag is set it will unset it, and if its not set it will set it
+		
+		

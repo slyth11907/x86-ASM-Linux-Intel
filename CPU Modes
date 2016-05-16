@@ -1,0 +1,15 @@
+32Bit CPUs have 3 modes
+
+Real Mode - Processor is in this mode by default during power up or reset
+	At power up or reset
+	Can only access 1MB of memory
+	No memory protection
+	Privilege Levels (Kernel Vs User space) not possible
+
+Protected Mode - Processor is in this mode when not being powered up/reset or in Management mode
+	Up to 4GB of memory
+	Memory protection/ privilege level/ multi-tasking
+	Supports Virtual-8086 mode (Used for previous Gen CPUs)
+
+System Management Mode
+	Used for power management tasks

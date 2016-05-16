@@ -1,0 +1,20 @@
+See Memory_Models.jpg image for flow chart.
+
+Flat Model
+	Can access any address directly
+
+Segmented Model
+	You use a Segment Selector along with an Offset to find out the location of the address
+
+Real-Address Mode Model
+	Similar to Segmented Model (Uses rare cases)
+
+
+
+32Bit Linux uses:
+	Protected Mode
+	Flat Memory Model
+	4GB Addressable space => 2^32
+	Memory Protection
+	Privilege Levels of Code
+	Segmented Registers point to degmented Descripters (GDT, LDT, IDT (Global, Local, Interrupt) Descripter Tables)

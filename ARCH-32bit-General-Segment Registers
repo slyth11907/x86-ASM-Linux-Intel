@@ -1,0 +1,48 @@
+General Purpose Registers
+
+	EAX - Accumulator Register. Used for storing operands and result data.
+
+		32bits long, broken down to AX(16bits long) and AX can be broken down to AH -A HIGH(8-15bits) and AL-A Low(0-7bits)
+
+	EBX - Base Register. Pointer to data.
+
+		32bits long, broken down to BX(16bits long) and BX can be broken down to BH -B HIGH(8-15bits) and BL-B Low(0-7bits)
+
+	ECX - Counter Register. Loop operations
+
+		32bits long, broken down to CX(16bits long) and CX can be broken down to CH -C HIGH(8-15bits) and CL-C Low(0-7bits)
+
+	EDX - Data Register. I/O Pointer.
+
+		32bits long, broken down to DX(16bits long) and DX can be broken down to DH -D HIGH(8-15bits) and DL-D Low(0-7bits)
+
+	ESP - Stack Pointer Register.
+
+		32bits long, broken down to SP(16bits long) and cannot be broken down any further
+
+	EBP - Stack Data Pointer Register.
+
+		32bits long, broken down to BP(16bits long) and cannot be broken down any further
+
+	ESI - Data Pointer Registers for memory operations.
+
+		32bits long, broken down to SI(16bits long) and cannot be broken down any further
+
+	EDI - Data Pointer Registers for memory operations.
+
+		32bits long, broken down to DI(16bits long) and cannot be broken down any further
+
+		
+Segment Registers - All are 16bits wide
+
+	CS - Code Segment
+
+	DS - Data Segment
+
+	SS - Stack Segment
+
+	ES - Data Segment
+
+	FS - Data Segment
+
+	GS - Data Segment

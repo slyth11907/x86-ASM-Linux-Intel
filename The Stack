@@ -1,0 +1,20 @@
+The Stack
+
+
+	This is used by processes and threads to store temporary data
+	EX:
+		local variables
+		return addresses
+		
+	
+	The stack uses a LIFO type design
+		Last-In-First-Out
+		
+		
+	Intel grows from higher memory to Lower memory, so the TOP of the stack is the lower memory side
+	
+	Extended Stack Pointer:
+	ESP should always point to the TOP of the stack
+	
+	
+	

@@ -1,0 +1,162 @@
+Size of Data Types:
+	Byte 		  - 8bits
+	Word 		  - 16bits
+	Double Word 	  - 32bits
+	Quad Word 	  - 64bits
+	Double Quad Words - 128bits
+
+
+	Each Data Type can be unsigned or signed.
+	EX.
+		unsigned Doube Word is 32 bits long and will use all 31(0-31) bits for the value
+		signed Double Word is also 32 bits long and will use all 30(0-30) bits for the value and the last 			bit for the sign (Can be +/-)
+
+
+
+LITTLE INDIAN:
+
+
+	Lower Byte gets stored in lower memory.
+
+	EX.
+		Lets say we have byte 0x12345678
+		In memory we would see 0x78 0x56 0x34 0x12
+		It reverses the order we see it but the data stays the same
+
+	EX 2.
+
+		0A 0B 0C 0D       Memory - Lower Half
+		 |  |  |  |-----> | 0D |
+		 |  |  |--------> | 0C |
+		 |  |-----------> | 0B |
+		 |--------------> | 0A | 
+					 - Higher Half
+
+
+	--------------INITALIZED DATA TYPES----------------------
+
+LABLES:
+
+	Accessing a lable in NASM be aware of the following (Case Sensative!!!)
+		Accessing memory reference with [] AKA the value
+		- message db 0XAA, 0xBB, 0xCC, 0xDD
+		- mov eax, message <- moves address into eax
+		- mov eax, [message] <- moves the value into eax
+
+
+Define Byte (db):
+	Define Byte is normally use for a single byte and define word is used for 2.
+
+	EX.
+		db 0x55 	        ; Can use single bytes
+		db 0x55, 0x56, 0x57     ; Can also use a sequence of bytes
+		db 'a', 0x55            ; Can also use chars
+		db 'hello', 13, 10, '$' ; Can also use strings
+
+
+Define Word (dw):
+
+	Define Word will alays use the full amount of space avaliable, This applys for all other DATA Types, for 		example
+		dw 'a' ; This will show 0x61 0x00, 61 is ascii for lowercase a and the 0x00 is a filler
+
+	EX.
+		dw 'ab' ; This will show 0x61 0x62
+		dw 'abc' ; This will show 0x61 0x62 0x63 0x00
+
+
+Define Double Word (dd):
+
+	EX.
+		dd 0x12345678 ; This will show 0x78 0x56 0x34 0x12 (remember little indeian)
+		dd 1.234567e20 ; Floating point constant
+
+
+Double Quad Word (dq):
+
+	EX.
+		dq 0x123456789abcdef0 ; 8 byte constant
+		dq 1.234567e20	      ; double-percision float
+
+Double Extended-percision floating point (dt):
+
+	EX.
+		dt 1.234567e20 ; extended percision float
+
+
+	--------------UNNITALIZED DATA TYPES----------------------
+
+				NOTE: All unitialized data is uder .BSS in ASM file
+
+Buffer:
+
+	EX.
+		resb 64 ; This will reserve 64 bytes
+
+Wordvar:
+
+	EX.
+		resw 1 ; this will reserve a word
+
+
+
+
+	--------------SPECIAL TOKENS----------------------
+
+
+$:
+	This evaluates to the current line
+	Most of the time used to find an offset of a current instruction
+
+	EX.
+		message: db "Hellow World" ; Defines the byte Hello World
+		mlen equ $-message         ; this gets the length of the string 
+
+	When looking at the example above we see the following:
+
+		message: db "Hello World"<-----| AKA right after d is this case
+		Once this line exucuted $ is = |
+
+		In this line, mlen equ $-message, message is = right before 'H' so this must = the length of the 			string
+		
+
+$$:
+	This evaluates to the beginning of the current section
+
+
+
+Times (times):
+
+	This is nothing more than exicuting an instruction multple times
+	This also cn apply to data as well as instructions.
+
+	EX.
+		DATA:
+		zerobuf: times 64 db 0
+		(Repeat the commands "db 0" 64 times)
+
+		INSTRUCTIONS
+		times 100 movsb
+		(Repeat the instruction "movsb" 100 times)
+
+
+
+Moving Values:
+
+	- message db 0xAA, 0xBB, 0xCC, 0xDD ; assigns the data to the label message
+	- mov eax, message ; this moves the address of the label message to EAX
+	- mov eax, [message] ; this moves the actual value  AKA "0xAA, 0xBB, 0xCC, 0xDD" into EAX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

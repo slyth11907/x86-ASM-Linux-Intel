@@ -1,0 +1,13 @@
+Fine CPU Details on Ubuntu:
+	cat /proc/cpuinfo
+	sudo lshw
+
+How find out if you are on 32/64 bit CPU:
+	uname -a
+	lscpu
+
+How to do you know your CPUs additonal capabilities such as FPU, MMX, SSE and SSE2:
+	cat /proc/cpuinfo | grep flags
+
+
+
