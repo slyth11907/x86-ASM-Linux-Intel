@@ -28,6 +28,10 @@ PrintHelloWorld:
   push ecx ; this pushes ecx onto the stack to save it
   
   call ProcHelloWorld ; this call the procedure ProcHElloWorld to be ran
+  ; when call is execture it takes the memory addr of the next instruction (pop ecx) and pushes it onto the stack
+  ; once the ret instruction is called it will pop that value off the stack and into EIP and continue from where EIP is(pop ecx)
+  
+  
   pop ecx ; this pops ecx back off the stack into ecx
   loop PrintHelloWorld ; this will dec 1 from ecx then issue a call PrintHelloWorld instruction
   ; once ecx is set to 0 the ZF flag will be set and if that flag is set it will skip the loop instruction
