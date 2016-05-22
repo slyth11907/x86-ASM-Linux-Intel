@@ -34,6 +34,11 @@ PrintHW:
   ; the ZF flag is set and the jmp condition is not longer matching and will exit the program
   jnz PrintHW
 
+  ;If we want to use the nasm loop method we will need to change the jnz jump to loop PrintHW
+  ; we will also need to remove the dec eax. And replace the counter register(normaly ecx) from eax to ecx
+  ;So ever pop/push and inside of the Begin label should reference ecx instead of eax
+
+
 
   ; Exits the application
   mov eax, 0x1 ; sets the syscall # for exit to eax
