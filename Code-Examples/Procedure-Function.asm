@@ -30,6 +30,7 @@ PrintHelloWorld:
   call ProcHelloWorld ; this call the procedure ProcHElloWorld to be ran
   pop ecx ; this pops ecx back off the stack into ecx
   loop PrintHelloWorld ; this will dec 1 from ecx then issue a call PrintHelloWorld instruction
+  ; once ecx is set to 0 the ZF flag will be set and if that flag is set it will skip the loop instruction
   
   
   ; exit the application
