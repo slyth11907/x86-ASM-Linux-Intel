@@ -16,6 +16,7 @@ _start:
   mov bl, 0x3 ; Sets 3 to bl
   mul bl ; This multiplies whats its al by whats in bl and saves it's answer in ax
   
+  ; with this the OF and CF flags are set since FF * anything will be more that just 8 bits and in turn will end up in ax
   mov al, 0xFF ; Moves FF into al
   mul bl ; This multiplies whats its al by whats in bl and saves it's answer in ax
   
@@ -25,5 +26,13 @@ _start:
 
   mov ax, 0x1122 ; this moves 16bits 1122 into ax
   mov bx, 0x0002 ; This moves 16bits 0002 into bx
+  mul bx ; This multiplies whats its ax by whats in bx and saves it's answer in dc & ax
   
+  mov ax, 0x1122 ; this moves 16bits 1122 into ax
+  mov bx, 0x1122 ; this moves 16bits 1122 into bx
+  mul bx ; This multiplies whats its ax by whats in bx and saves it's answer in dc & ax
+
+
   
+
+
