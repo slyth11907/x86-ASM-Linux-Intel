@@ -10,5 +10,9 @@ If we multiplied AL(8bits) * AH(16bits) the answer(depending on #'s in the regis
 push results to the AX register
 
 
+When dividing #'s in ASM take the following chart into consideration.
+Since this is devision no need to worry about the carry flag or overflow flag
 
-
+AX / 8bits = Answer in AL remainder in AH
+DX & AX / 16bits = Answer in AX remainder in DX
+EDX & EAX / 32bits = Answer in EAX remainder in EDX
