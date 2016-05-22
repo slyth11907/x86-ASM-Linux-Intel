@@ -50,14 +50,14 @@ _start:
   mul dword [var3] ; since var3 is only 32 bits it will multiply eax by var3
   
   ; division with 16bit
-  mov dx, 0x0
-  mov ax, 0x7788
-  mov cx, 0x2
-  div cx
+  mov dx, 0x0 ; empty out dx
+  mov ax, 0x7788 ; move 7788 into ax
+  mov cx, 0x2 ; move 2 into cx
+  div cx ; this will device dx+ax / cx, the answer will go into AX and the remainder in DX
   
-  mov ax, 0x7788 + 0x1
-  mov cx, 0x2
-  div cx
+  mov ax, 0x7788 + 0x1 ; move 7788 +1 to 7789 into ax
+  mov cx, 0x2 ; move 2 into cx
+  div cx ; this will device dx+ax / cx, the answer will go into AX and the remainder in DX
   
   ; exit the application
   mov eax, 1 ; sets the exit syscall num to eax
