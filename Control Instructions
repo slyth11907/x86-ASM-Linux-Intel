@@ -1,8 +1,46 @@
 
+Branching can be done in 2 different ways:
+  Unconditional jump: JMP
+  Conditional Jump: JXX
+  
+
+Unconditional:
+
+  Types:
+    Near: This jumps to instructions in the sam segment
+      Short: -128 to +127 from the current position
+    
+    Far: This jumps into another different segment
 
 
 
+Conditional:
 
+  JZ:
+    Jump on 0
+    ZF flag is set
+  
+  JNZ:
+    Jump on not 0
+    ZF flag is not set
+    
+  JA:
+    Jump if above
+    CF & ZF flags are not set
+    
+  JAE:
+    Jump if above or equal
+    CF flag is not set
+    
+  JC:
+    Jump if carry flag is set
+    CF is set
+  
+  JNC:
+    Jump if carry flag is not set
+    CF is not set
+    
+  
 
 
 
