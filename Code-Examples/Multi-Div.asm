@@ -19,4 +19,11 @@ _start:
   mov al, 0xFF ; Moves FF into al
   mul bl ; This multiplies whats its al by whats in bl and saves it's answer in ax
   
+  ; 16bit multiplication
+  mov eax, 0x0 ; This 0's out eax can use xor eax, eax as well to avoid 0's 
+  mov ebx, 0x0 ; This 0's out ebx can use xor ebx, ebx as well to avoid 0's 
+
+  mov ax, 0x1122 ; this moves 16bits 1122 into ax
+  mov bx, 0x0002 ; This moves 16bits 0002 into bx
+  
   
