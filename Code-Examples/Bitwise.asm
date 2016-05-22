@@ -24,8 +24,8 @@ _start:
   
   ; XOR
   ; xoring the sam value will produce 0, good thing to note if you want to avoid 0x0 in your source when compile to shellcode
-  xor dword [var3], 0x11223344 ; this performs an XOR on 11223344 & 11223344 resulting in 0x00000000
-  xor dword [var3], 0x11223344 ; this performs an XOR on 11223344 & 11223344 resulting in 0x00000000
+  xor dword [var3], 0x11223344 ; this performs an XOR on 11223344 & 00000000 resulting in 0x00000000
+  xor dword [var3], 0x11223344 ; this performs an XOR on 00000000 & 11223344 resulting in 0x11223344
   
   ; NOT
   mov eax, 0xFFFFFFFF ; moves 0xFFFFFFFF into eax
