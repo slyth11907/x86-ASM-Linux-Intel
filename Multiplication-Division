@@ -1,1 +1,12 @@
+When multiplying #'s in ASM take the following chart into consideration.
+
+AL * 8bits = AX register
+AX * 16bits = DX & AX register
+EAX * 32bits = EDX & EAX registers
+
+When the multiplication is greater than the original register it will set the carry flag & overflow flag to 1.
+
+If we multiplied AL(8bits) * AX(32bits) the answer(depending on #'s in the registers) would set the carry & overflow flag an
+push results to the DX & AX registers
+
 
