@@ -11,8 +11,10 @@ Unconditional:
       Short: -128 to +127 from the current position
     
     Far: This jumps into another different segment
-
-
+  
+  EX:
+    jmp Begin ; Begin is the label 
+  
 
 Conditional:
 
