@@ -28,6 +28,10 @@ PrintHW:
   
   pop eax ; This moves 0x5 back into eax from the stack
   dec eax ; this takes eax and - 1 from it, so eax is now 4
+  
+  ; This will jump as long as the ZF(zero) flag is not set
+  ; this means that whil eax is being dec'ed by 1 each time, it will continue to jmp until eax is set to 0, once that happens
+  ; the ZF flag is set and the jmp condition is not longer matching and will exit the program
   jnz PrintHW
 
 
