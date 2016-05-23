@@ -29,7 +29,7 @@ shellcode:
 	xor ebx, ebx ; this will 0 out ebx so we only have to lead 4 into bl instead of all 32bits
 	mov bl, 0x1
 	
-	mov ecx, message 
+	;mov ecx, message 
 	
 	;mov edx, mlen 
 	xor edx, edx
