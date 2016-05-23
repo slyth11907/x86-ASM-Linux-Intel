@@ -25,4 +25,4 @@ MOVSB:
   This will move the byte from ESI into EDI overwriting what was in EDI
   
 CMPSB:
-  
+  This will compare byte by byte form ESI to EDI and if a match is found the ZF flag is set, if not nothing else happens
