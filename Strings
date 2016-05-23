@@ -1,0 +1,28 @@
+
+
+When dealing with strings the source string is normally ESI and the destination is EDI
+
+
+Direction Flag:
+  Set the flag: STD
+  Clear the flag: cld
+  
+  This flag will change what direction the string instruction is going to go through the string. left to right or right to left
+  If the flag is set it will go from highest to lowest memeory address AKA Right to Left
+  If the flag is not set it will go from lowest to highest memory AKA Left to Right
+
+
+REP:
+  This is used to repeat strings operations
+  it will continue to run until CX is set to 0 and check if the ZF flag is set
+  This will also DEC -1 to CX each time it runs. Normally the length of a string is in ecx
+  
+  REPE: 
+    This will do exactly the same as REP exept it WILL set the ZF flag upon the completion of CX being set to 0
+    This is usefull for conditonal jumps right after
+    
+MOVSB:
+  This will move the byte from ESI into EDI overwriting what was in EDI
+  
+CMPSB:
+  
