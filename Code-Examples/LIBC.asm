@@ -16,7 +16,8 @@ main:
   ; since printf just requires the string you wish to print we can just pass it message, see 'man 3 printf'
   
   call printf ; this calls the function printf with the message db on the stack
-  add esp, 0x4 ; we adjust the stack size by 4 due to the syscall requiring 4 arguments. this brings us back to where we were before
+  add esp, 0x4 ; we adjust the stack size by 4 due to the syscall using 4 bytes of data for the message we passe it
+  ; this brings us back to where we were before
   
   mov eax, 0xa
   call exit
