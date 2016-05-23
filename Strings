@@ -18,7 +18,7 @@ REP:
   This will also DEC -1 to CX each time it runs. Normally the length of a string is in ecx
   
   REPE: 
-    This will do exactly the same as REP exept it WILL set the ZF flag upon the completion of CX being set to 0
+    This will do exactly the same as REP exept it WILL set the ZF flag if any byte does not match on each compare
     This is usefull for conditonal jumps right after
     
 MOVSB:
