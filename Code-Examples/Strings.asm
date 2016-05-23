@@ -32,6 +32,9 @@ _start:
   mov edi, [destination] ; this moves our destination into edi
   repe cmpsb ; this will compare esi to edi byte by byte based on the # of bytes in ecx to check if anything matches
   
+  ; if there is a match in the compare the ZF flag will be set and the jump will execute
+  ; if there is no match the ZF flag will not be set and the strings are not equal
+  
   jz SetEqual ; this will jump is the ZF flag is set, if its not set it will skip the jump
   mov ecx, results2 ; this moves results2 string into ecx
   mov edx, results2Len ; this moves the results2 string length into edx
