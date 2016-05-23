@@ -1,0 +1,18 @@
+
+KEY NOTES:
+
+  When calling any libc functions you must use it with extern
+  
+  All arguments must be in reverse order on the stack
+    CALL function(a,b,c,d)
+    push d
+    push c
+    push b
+    push a
+  
+  Make sure the stack is correct after calling the libc functions, pushad, pushfd
+  
+  Link with GCC not LD, this includes using main instead of start
+  gcc -o filename filename.o
+  
+  
