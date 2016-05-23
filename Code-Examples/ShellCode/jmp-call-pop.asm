@@ -1,50 +1,49 @@
 ; Filename: jmp-call-pop.asm
 ; Author: Brandon Dennis
 
-; Compiles shellcode no nulls
-; "\xeb\x15\x59\x31\xc0\xb0\x04\x31\xdb\xb3\x01\x31\xd2\xb2\x13\xcd\x80\x31\xc0\xb0\x01\xcd\x80\xe8\xe6\xff\xff\xff\x48\x65\x6c\x6c\x6f\x20\x57\x6f\x72\x6c\x64\x21\x0a"
+; execve
+; execve takes 3 arguments
+; 1: filename: EX /bin/bash, 0x0
+; 2: arguments for the executable(1st arg should be the filename then 2nd arg should be null or 0x0000)
+; 3: envp is used for env settings, we can leave this as null: EX 0x0000
+
+; 
+
 
 global _start
 
 section .text
 
 _start:
-
-; We need to remove all null values from the shell code. Lines will be commented out
-
-	; we issue our jmp short to start jmp call pop
+	; we issue our jmp here to get to call_shellcode
 	jmp short call_shellcode
-
-
+	
+	
 shellcode:
 
-	; we now use our pop to get the memory address of message
-	pop ecx
-
-	;mov eax, 0x4 
-	xor eax, eax ; this will 0 out eax so we only have to lead 4 into al instead of all 32bits
-	mov al, 0x4
+	pop esi ; we now pop the message label address off the stack into esi
+	; this is done since all registers are going to be used when issuing the syscall
 	
-	;mov ebx, 0x1 
-	xor ebx, ebx ; this will 0 out ebx so we only have to lead 4 into bl instead of all 32bits
-	mov bl, 0x1
+	; we need to change the A in the message to be null at runtime so it terminates the string
+	xor ebx, ebx ; this will 0 out the ebx register
+	mov byte [esi +9], bl ; we set the 9th position in the message string to bl which is 0
 	
-	;mov ecx, message 
+	mov dword [esi +10], esi ; we are now wanting to change BBBB to be the address of the string /bin/bash
+	; sincethe first B is right after the A at position 9 we now use 10
 	
-	;mov edx, mlen 
-	xor edx, edx
-	mov dl, 0x13
-	int 0x80 
-
-	;mov eax, 0x1
-	xor eax, eax
-	mov al, 0x1
-	;mov ebx, 0x5 ; we can remove this entirly as it doesnt matter the exit code
-	int 0x80
-
+	mov dword [esi +14], ebx ; we need all C's to be null. Since we xor'd ebx already we can use that
+	; we move this to 14 bytes now since there were 4 B's
+	
+	lea ebx, [esi] ; this will load the address of /bin/bash into ebx as the first arg
+	lea ecx, [esi +10] ; this will load the address of /bin/bash + the nulls where the C's are
+	lea edx, [esi +14] ; this will load the address of the nulls
+	
+	xor, eax, eax ; this 0's out the register
+	mov al, 0xb ; this will load the syscall # 11
+	
 	
 
 call_shellcode:
-	call shellcode
-	message: db "Hello World!", 0xA ; this makes the amount of bits as 13 for Hello World!
-;	mlen	equ  $-message ; this is removed due to the length not fitting the entire register 
+	call shellcode ; here the address of the message label below is pushed onto the stack
+	message db "/bin/bashABBBBCCCC"
+
