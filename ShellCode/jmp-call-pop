@@ -1,0 +1,28 @@
+
+
+
+
+Jump Call Pop allows you to select dynamicly at runtime where a something is at in memory.
+
+
+EX:
+
+jmp short Call_shellcode
+
+shellcode:
+
+  pop ecx
+  
+Call_shellcode:
+  call shellcode
+  message db "Hello World!", 0xA
+  
+  
+  
+  We are going to first jump to the Call_shellcode label for us to land as the call shellcode instruction.
+  When we land at this instruction the NEXT instruction's memory location is pushed onto the stack. 
+  AKA the memory location of Hello World string is pushed onto the stack.
+  
+  Once that happens execution is sent over to shellcode and we pop the memory address of hello world into ecx.
+  
+  
