@@ -44,7 +44,8 @@ PrintHelloWorld:
   
 section .data
 
-
+	message: db "Hello World!"
+	mlen	equ  $-message ; short way to get length of a string
 
 
 
