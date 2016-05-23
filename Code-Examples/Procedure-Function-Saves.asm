@@ -9,8 +9,9 @@ section .txt
 ; upon the application starting
 ProcHelloWorld:
   
-  push ebp
-  mov ebp, esp
+  ;This is called the epilog
+  push ebp ; this pushes the fram pointer onto the stack
+  mov ebp, esp ; this moves the current stakc pointer into ebp
   
   ; Prints Hello World using the write syscall # 4
   
@@ -20,7 +21,9 @@ ProcHelloWorld:
   mov edx, mlen ; moves the length of the string hello world to edx
   int 0x80 ; executes the syscall in eax
   
-  leave
+  leave ; this performs the instructions below in a shorter to write way
+  ; mov esp, ebp
+  ; pop ebp
   
   ret ; this returns to the place that used the call ProcHelloWorld instruction
   
@@ -53,19 +56,10 @@ PrintHelloWorld:
   
 section .data
 
+	message: db "Hello World!"
+	mlen	equ  $-message ; short way to get length of a string
 
 
 
 
   
-  
-  
-    
-
-
-
-
-
-
-
-
