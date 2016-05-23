@@ -1,0 +1,18 @@
+
+
+When call is execture it takes the memory addr of the next instruction and pushes it onto the stack
+
+Once the ret instruction is called it will pop that value off the stack and into EIP and continue from where EIP is
+
+Sometimes the procedure can change flags or registers and cause issues for the mail application. This can be negated in the below options
+
+Saving/Restoring Registers:
+
+  PUSHAD: pushes all contents of the registers onto the stack
+  POPAD: restores all of contents of each register from the stack
+  
+Saving/Restoring Flags:
+
+  PUSHFD: pushes all flags onto the stack
+  POPFD: pops the values of the flags off the stack and reassigns the flags
+  
