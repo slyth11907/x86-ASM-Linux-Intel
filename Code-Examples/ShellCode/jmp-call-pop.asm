@@ -40,6 +40,7 @@ shellcode:
 	
 	xor eax, eax ; this 0's out the register
 	mov al, 0xb ; this will load the syscall # 11
+	int 0x80 ; execute the system call
 	
 	
 
